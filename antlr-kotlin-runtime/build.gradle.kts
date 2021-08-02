@@ -18,7 +18,7 @@ kotlin {
         }
     }
 
-    ios("ios") {
+    /*ios("ios") {
         binaries {
             staticLib()
         }
@@ -37,7 +37,7 @@ kotlin {
         binaries {
             staticLib()
         }
-    }
+    }*/
     sourceSets {
         commonMain {
             dependencies {
@@ -73,7 +73,7 @@ kotlin {
                 implementation(kotlin("test-js"))
             }
         }
-        val nativeMain by creating {
+        /*val nativeMain by creating {
         }
         val iosMain by getting {
             dependsOn(nativeMain)
@@ -86,6 +86,6 @@ kotlin {
         }
         val windowsMain by getting {
             dependsOn(nativeMain)
-        }
+        }*/
     }
 }
