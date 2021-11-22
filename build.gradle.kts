@@ -4,8 +4,6 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        jcenter()
-        maven("https://oss.jfrog.org/oss-snapshot-local/")
     }
 
     dependencies {
@@ -44,8 +42,6 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-        jcenter()
-        maven("https://oss.jfrog.org/oss-snapshot-local/")
     }
 }
 
