@@ -2,6 +2,11 @@ plugins {
     id("org.jetbrains.kotlin.multiplatform")
 }
 
+//TODO: Remove this code after migrating to kotlin multiplatform plugin version 1.6.20+
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().nodeVersion = "16.0.0"
+}
+
 repositories {
     mavenCentral()
     mavenLocal()
@@ -19,6 +24,11 @@ kotlin {
     }
 
     ios("ios") {
+        binaries {
+            staticLib()
+        }
+    }
+    iosSimulatorArm64("iosSimulator") {
         binaries {
             staticLib()
         }
@@ -43,7 +53,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-common"))
                 implementation(kotlin("reflect"))
-                implementation("com.benasher44:uuid:0.2.2")
+                implementation("com.benasher44:uuid:0.4.0")
             }
         }
         commonTest {
@@ -77,6 +87,9 @@ kotlin {
         }
         val iosMain by getting {
             dependsOn(nativeMain)
+        }
+        val iosSimulatorMain by getting {
+            dependsOn(iosMain)
         }
         val linuxMain by getting {
             dependsOn(nativeMain)
